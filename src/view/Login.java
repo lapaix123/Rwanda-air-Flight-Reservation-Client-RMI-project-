@@ -179,6 +179,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
         try {
+            Registry registry = LocateRegistry.getRegistry("127.0.0.1", 6000);
             String username = userNameTxt.getText();
             String password = passwordTxt.getText();
 
@@ -186,7 +187,7 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Plz fill all field!!");
             } else {
                 if (staffRadio.isSelected()) {
-                    Registry registry = LocateRegistry.getRegistry("127.0.0.1", 6000);
+
                     UserService userService = (UserService) registry.lookup("userService");
                     User login = userService.login(username, password);
                     if (login != null) {
@@ -195,8 +196,10 @@ public class Login extends javax.swing.JFrame {
                     } else {
                         JOptionPane.showMessageDialog(this, "Plz Provide Collect Staff Username or Password");
                     }
-                }
-                Registry registry = LocateRegistry.getRegistry("127.0.0.1", 6000);
+                }else{
+                    
+                
+
                 PassengerService passengerService = (PassengerService) registry.lookup("passengerService");
                 Passenger passenger = passengerService.login(username, password);
                 if (passenger != null) {
@@ -206,7 +209,7 @@ public class Login extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(this, "Plz Provide Collect Passenger Username or Password");
                 }
-
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

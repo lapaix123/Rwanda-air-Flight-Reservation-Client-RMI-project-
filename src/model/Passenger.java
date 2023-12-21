@@ -32,6 +32,7 @@ public class Passenger implements Serializable{
     private String password;
     private String gender;
     private LocalDate dob;
+    
 
     
     private String nId;
