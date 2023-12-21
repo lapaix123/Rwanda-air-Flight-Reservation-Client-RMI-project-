@@ -6,29 +6,29 @@
 package model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
-
 
 /**
  *
  * @author la paix
  */
+public class Flight implements Serializable {
 
-public class Flight implements Serializable{
-    
     private Long flightId;
 
-    
     private Airline airline;
 
     private String flightNumber; // Unique identifier for the flight
 
-    private String departureCity;
-    private String arrivalCity;
+    private Country departureCity;
 
-    private LocalDateTime departureDateTime;
-    private LocalDateTime arrivalDateTime;
+    private Country arrivalCity;
+
+    private Date departureDateTime;
+    private Date arrivalDateTime;
 
     private int totalSeats;
     private int availableSeats;
@@ -36,14 +36,12 @@ public class Flight implements Serializable{
     private double basePrice; // Base price for the flight
 
     // Other fields specific to the Flight entity
-
-    
     private List<Booking> bookings;
 
     public Flight() {
     }
 
-    public Flight(Long flightId, Airline airline, String flightNumber, String departureCity, String arrivalCity, LocalDateTime departureDateTime, LocalDateTime arrivalDateTime, int totalSeats, int availableSeats, double basePrice, List<Booking> bookings) {
+    public Flight(Long flightId, Airline airline, String flightNumber, Country departureCity, Country arrivalCity, Date departureDateTime, Date arrivalDateTime, int totalSeats, int availableSeats, double basePrice, List<Booking> bookings) {
         this.flightId = flightId;
         this.airline = airline;
         this.flightNumber = flightNumber;
@@ -81,35 +79,35 @@ public class Flight implements Serializable{
         this.flightNumber = flightNumber;
     }
 
-    public String getDepartureCity() {
+    public Country getDepartureCity() {
         return departureCity;
     }
 
-    public void setDepartureCity(String departureCity) {
+    public void setDepartureCity(Country departureCity) {
         this.departureCity = departureCity;
     }
 
-    public String getArrivalCity() {
+    public Country getArrivalCity() {
         return arrivalCity;
     }
 
-    public void setArrivalCity(String arrivalCity) {
+    public void setArrivalCity(Country arrivalCity) {
         this.arrivalCity = arrivalCity;
     }
 
-    public LocalDateTime getDepartureDateTime() {
+    public Date getDepartureDateTime() {
         return departureDateTime;
     }
 
-    public void setDepartureDateTime(LocalDateTime departureDateTime) {
+    public void setDepartureDateTime(Date departureDateTime) {
         this.departureDateTime = departureDateTime;
     }
 
-    public LocalDateTime getArrivalDateTime() {
+    public Date getArrivalDateTime() {
         return arrivalDateTime;
     }
 
-    public void setArrivalDateTime(LocalDateTime arrivalDateTime) {
+    public void setArrivalDateTime(Date arrivalDateTime) {
         this.arrivalDateTime = arrivalDateTime;
     }
 
@@ -144,7 +142,6 @@ public class Flight implements Serializable{
     public void setBookings(List<Booking> bookings) {
         this.bookings = bookings;
     }
-    
-    
+
     
 }
