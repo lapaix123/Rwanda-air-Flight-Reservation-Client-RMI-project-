@@ -7,6 +7,7 @@ package model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import javax.annotation.Generated;
 
@@ -24,8 +25,9 @@ public class Booking implements Serializable{
     private Flight flight;
    
     private Passenger passenger;   
-    private LocalDate bookingaDAte;
+    private Date bookingaDAte;
     private String status;
+    private Integer numberOfbook;
 
     
     private List<Payment> payments;
@@ -33,14 +35,25 @@ public class Booking implements Serializable{
     public Booking() {
     }
 
-    public Booking(Long bookingId, Flight flight, Passenger passenger, LocalDate bookingaDAte, String status, List<Payment> payments) {
+    public Booking(Long bookingId, Flight flight, Passenger passenger, Date bookingaDAte, String status, Integer numberOfbook, List<Payment> payments) {
         this.bookingId = bookingId;
         this.flight = flight;
         this.passenger = passenger;
         this.bookingaDAte = bookingaDAte;
         this.status = status;
+        this.numberOfbook = numberOfbook;
         this.payments = payments;
     }
+
+    public Integer getNumberOfbook() {
+        return numberOfbook;
+    }
+
+    public void setNumberOfbook(Integer numberOfbook) {
+        this.numberOfbook = numberOfbook;
+    }
+
+   
 
     public Booking(Long bookingId) {
         this.bookingId = bookingId;
@@ -70,11 +83,11 @@ public class Booking implements Serializable{
         this.passenger = passenger;
     }
 
-    public LocalDate getBookingaDAte() {
+    public Date getBookingaDAte() {
         return bookingaDAte;
     }
 
-    public void setBookingaDAte(LocalDate bookingaDAte) {
+    public void setBookingaDAte(Date bookingaDAte) {
         this.bookingaDAte = bookingaDAte;
     }
 

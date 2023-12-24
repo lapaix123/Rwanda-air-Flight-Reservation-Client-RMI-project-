@@ -103,8 +103,10 @@ public class PassengerRegistration extends javax.swing.JFrame {
         dobDatechoser = new com.toedter.calendar.JDateChooser();
         passwordTxt = new javax.swing.JPasswordField();
         rePasswordTxt = new javax.swing.JPasswordField();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Natinal ID /Passport");
 
@@ -139,7 +141,14 @@ public class PassengerRegistration extends javax.swing.JFrame {
 
         jLabel12.setText("You have Account?");
 
+        jLabel13.setForeground(new java.awt.Color(0, 0, 153));
         jLabel13.setText("Clihe here To sign In");
+        jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
 
         gndTxt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Femail" }));
 
@@ -269,22 +278,10 @@ public class PassengerRegistration extends javax.swing.JFrame {
                 .addGap(19, 19, 19))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(263, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(79, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 72, -1, -1));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photo/73274_rwandaira330crwandair_279350.jpg"))); // NOI18N
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 760));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -334,7 +331,7 @@ public class PassengerRegistration extends javax.swing.JFrame {
 
         } else {
             try {
-                Passenger passenger= new Passenger();
+                Passenger passenger = new Passenger();
                 passenger.setnId(nid);
                 passenger.setfNames(fname);
                 passenger.setLnames(lname);
@@ -352,6 +349,8 @@ public class PassengerRegistration extends javax.swing.JFrame {
 
                 if (message != null) {
                     JOptionPane.showMessageDialog(this, message);
+                    this.dispose();
+                    new Login().setVisible(true);
                 } else {
                     System.err.println(message);
                 }
@@ -360,6 +359,11 @@ public class PassengerRegistration extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        this.dispose();
+        new Login().setVisible(true);
+    }//GEN-LAST:event_jLabel13MouseClicked
 
     /**
      * @param args the command line arguments
@@ -409,6 +413,7 @@ public class PassengerRegistration extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
